@@ -1,0 +1,163 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Тестовое веб-приложение",
+    "description": "Веб-приложение, имеющее 4 эндпоинта для демонстрации их работы.",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "endpoints",
+      "description": "Список доступных эндпоинтов"
+    }
+  ],
+  "paths": {
+    "/get/{userId}": {
+      "get": {
+        "tags": [
+          "endpoints"
+        ],
+        "summary": "Метод GET",
+        "description": "Возвращает переданные на вход path и query параметры в формате ключ-значение",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Тестовый path-параметр",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "test1",
+            "in": "query",
+            "description": "Тестовый query-параметр",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "test2",
+            "in": "query",
+            "description": "Тестовый query-параметр",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Test"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Not valid HTTP Method"
+          }
+        }
+      }
+    },
+    "/post": {
+      "post": {
+        "tags": [
+          "endpoints"
+        ],
+        "summary": "Метод POST",
+        "description": "Возвращает переданные на вход body и query параметры в формате ключ-значение",
+        "parameters": [          
+          {
+            "name": "test1",
+            "in": "query",
+            "description": "Тестовый query-параметр",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "test2",
+            "in": "query",
+            "description": "Тестовый query-параметр",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Тело запроса в формате json",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Test"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "405": {
+            "description": "Not valid HTTP Method"
+          }
+        }
+      }
+    },
+    "/head": {
+      "head": {
+        "tags": [
+          "endpoints"
+        ],
+        "summary": "Метод HEAD",
+        "description": "Получает HTTP заголовки ответа",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "405": {
+            "description": "Not valid HTTP Method"
+          }
+        }
+      }
+    },
+    "/options": {
+      "options": {
+        "tags": [
+          "endpoints"
+        ],
+        "summary": "Метод OPTIONS",
+        "description": "Возвращает информацию о доступных HTTP методах",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "405": {
+            "description": "Not valid HTTP Method"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Test": {
+        "type": "object"
+      }
+    }
+  }
+}

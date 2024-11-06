@@ -17,6 +17,10 @@ py -3 -m venv .venv
 ```
 pip install Flask
 ```
+- Установить SwaggerUI
+```
+pip install flask-swagger-ui
+```
 - Запустить приложение 
 ```
 flask --app webapp run
