@@ -19,7 +19,7 @@ pip install Flask
 ```
 - Запустить приложение 
 ```
-flask --app hello run
+flask --app webapp run
 ```
 По умолчанию оно будет запущено по адресу: 
 ```
