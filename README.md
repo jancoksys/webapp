@@ -13,13 +13,9 @@ py -3 -m venv .venv
 ```
 .venv\Scripts\activate
 ```
-- Установить Flask
+- Установить зависимости
 ```
-pip install Flask
-```
-- Установить SwaggerUI
-```
-pip install flask-swagger-ui
+pip install -r requirements.txt
 ```
 - Запустить приложение 
 ```
