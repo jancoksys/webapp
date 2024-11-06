@@ -1,7 +1,4 @@
-from flask import Flask, jsonify, make_response, render_template, redirect
-from markupsafe import escape
-from flask import request
-from flask import abort, redirect, url_for
+from flask import Flask, jsonify, make_response, render_template, redirect, request, abort, redirect, url_for
 from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
