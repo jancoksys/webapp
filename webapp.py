@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, make_response, render_template, redirect, request, abort, redirect, url_for
 from flask_swagger_ui import get_swaggerui_blueprint
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
 SWAGGER_URL = '/api/docs'
 API_URL = '/static/openapi.json'
@@ -15,7 +15,7 @@ app.register_blueprint(swaggerui_blueprint)
 
 @app.route('/')
 def index():
-    return redirect('/api/docs')
+    return render_template('static/index.html')
 
 @app.route('/get/<userId>', methods=['GET'])
 def firstRoute(userId):
@@ -38,3 +38,5 @@ def fourRoute():
     response.headers['Allow'] = 'OPTIONS, HEAD'
     return response
 
+if __name__ == "__main__":  
+    app.run(debug=True, host="0.0.0.0", port='80')  
